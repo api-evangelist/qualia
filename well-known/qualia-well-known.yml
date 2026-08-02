@@ -1,0 +1,68 @@
+generated: '2026-08-02'
+method: searched
+source: live probes of the /.well-known/ surface on every Qualia host
+hosts:
+- host: https://www.qualia.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    content_type: text/plain
+    file: qualia-security.txt
+    spec: RFC 9116
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+- host: https://api.qualia.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+- host: https://blog.qualia.com
+  documents:
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+- host: https://learn.qualia.com
+  documents:
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+- host: https://status.qualia.com
+  documents:
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+- host: https://help.qualia.com
+  documents:
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+notes:
+- 'security.txt is the only /.well-known/ document Qualia publishes. It declares a
+  security@qualia.com contact, an explicit good-faith vulnerability disclosure posture
+  (no formal bounty), a canonical URI at https://qualia.com/.well-known/security.txt
+  and an Expires of 2026-09-15.'
+- 'No A2A agent card was found on any host: /.well-known/agent-card.json and the legacy
+  /.well-known/agent.json both return 404 everywhere probed, so no a2a/ artifact was
+  written.'
+- 'No OIDC or OAuth authorization-server metadata is published; the Qualia API authenticates
+  with HTTP Basic credentials rather than OAuth.'
+x-evidence:
+  fetched: '2026-08-02'
+  method: HTTP GET

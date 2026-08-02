@@ -1,0 +1,50 @@
+generated: '2026-08-02'
+method: probed
+source: https://api.qualia.com/graphql
+format: graphql-errors
+note: 'Qualia publishes no public error reference. This catalog records the error envelope
+  observed on a live unauthenticated probe of the GraphQL endpoint plus the transport
+  statuses observed. Only codes actually returned by the API are listed — the catalog
+  is deliberately incomplete rather than speculative, and should be extended from an
+  authenticated session.'
+envelope:
+  spec: GraphQL over HTTP (graphql-spec errors array)
+  content_type: application/json; charset=utf-8
+  shape: '{"errors":[{"message":"<human readable>","extensions":{"code":"<MACHINE_CODE>"}}]}'
+  fields:
+  - path: errors[].message
+    description: Human-readable error message.
+  - path: errors[].extensions.code
+    description: Machine-readable error code (SCREAMING_SNAKE_CASE).
+  rfc9457: false
+  problem_json: false
+errors:
+- code: UNAUTHORIZED
+  http_status: 401
+  message: Authorization header is missing
+  cause: 'The request carried no HTTP Basic Authorization header, so the calling organization
+    could not be identified.'
+  remediation: 'Send an Authorization: Basic <base64(credential)> header with the organization
+    credentials issued by Qualia.'
+  observed: '2026-08-02'
+  source: probe:https://api.qualia.com/graphql
+transport_statuses:
+- status: 302
+  path: /
+  description: 'GET https://api.qualia.com/ redirects to /graphql ("Found. Redirecting
+    to /graphql").'
+  observed: '2026-08-02'
+- status: 401
+  path: /graphql
+  description: Unauthenticated GraphQL request; returns the GraphQL errors envelope.
+  observed: '2026-08-02'
+- status: 404
+  path: /
+  method: POST
+  description: 'POST to the API host root returns an HTML "Cannot POST /" — only /graphql
+    accepts POST.'
+  observed: '2026-08-02'
+x-gaps:
+- 'No published error-code reference. The full set of extensions.code values (validation,
+  rate limiting, capability-gate denial, not-found) is undocumented publicly and would
+  need authenticated exercise or provider confirmation.'

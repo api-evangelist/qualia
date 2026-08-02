@@ -1,0 +1,69 @@
+generated: '2026-08-02'
+method: searched
+source: https://www.qualia.com/api-terms/
+versioning:
+  scheme: provider-issued-version
+  support_window_months: 12
+  docs: https://www.qualia.com/api-terms/
+  policy: 'Partners must use either (a) the most current version of the API Materials
+    provided by Qualia, or (b) unless otherwise directed by Qualia, a previous version
+    provided within the prior 12-month period. Older versions fall out of support.'
+deprecation:
+  policy_url: https://www.qualia.com/api-terms/
+  policy: 'A rolling 12-month version-support window is contractually defined in the
+    API Terms: any version older than 12 months is no longer supported. No separate
+    dated deprecation schedule or notice period is published.'
+  sunset_header: unknown
+  rfc8594: unknown
+  evidence: 'API Terms version clause; no Sunset/Deprecation header behaviour is documented
+    and none could be observed unauthenticated.'
+sla:
+  published: false
+  evidence: 'The API Terms explicitly disclaim uptime: "we do not warrant that the
+    API will function without interruption or error free." No uptime target or support
+    response commitment is published for the API.'
+  source: https://www.qualia.com/api-terms/
+status_page:
+  url: https://status.qualia.com/
+  provider: Atlassian Statuspage
+  api: https://status.qualia.com/api/v2/summary.json
+  feeds:
+    atom: https://status.qualia.com/history.atom
+    rss: https://status.qualia.com/history.rss
+  components:
+    core_products:
+    - Qualia API
+    - Assure
+    - Clear
+    - Connect
+    - Core
+    integrations:
+    - FedEx
+    - UPS
+    - Simplifile
+    features:
+    - Marketplace
+    - Shield
+    - Bank Account Verification
+    - Bank Wire Integration
+    - Check Image Upload
+    - ID Verification
+    - Documents
+    - Email
+    - SMS Messaging
+    underwriter_partners_monitored: 25
+  note: 'The Qualia API is monitored as a first-class component on the public status
+    page, alongside 25 underwriter partner integrations.'
+  probed: '2026-08-02'
+  http_status: 200
+changelog:
+  published: false
+  evidence: 'No dated API changelog or release-notes page was found. Product updates
+    are announced on the Qualia Insight blog (https://blog.qualia.com/) and in press
+    releases, neither of which is a structured changelog. No changelog/ artifact was
+    written.'
+deprecated_operations: []
+x-gaps:
+- No dated API changelog or release-notes feed.
+- No published SLA or uptime target for the API.
+- Sunset/Deprecation header support (RFC 8594) is undocumented.

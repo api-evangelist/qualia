@@ -1,0 +1,75 @@
+generated: '2026-08-02'
+method: searched
+source: https://www.qualia.com/qualia-api/
+docs:
+- https://www.qualia.com/qualia-api/
+- https://www.qualia.com/api-terms/
+note: 'Cross-cutting request/response semantics for the Qualia API, assembled from
+  the provider''s public API page and API Terms plus live probes. Qualia publishes
+  no OpenAPI and its reference documentation is gated behind partner onboarding, so
+  several conventions below are recorded as undocumented rather than guessed.'
+protocol:
+  style: GraphQL
+  endpoint: https://api.qualia.com/graphql
+  transport: HTTPS only (TLS 1.3 observed)
+  method: POST
+  content_type: application/json
+  read_write: true
+authentication:
+  style: http-basic
+  header: Authorization
+  detail: authentication/qualia-authentication.yml
+authorization:
+  style: capability-gates
+  detail: 'Calls are grouped into capability gates by objective; a gate must be enabled
+    on the calling organization. Gates can also be granted to, or revoked from, owned
+    and partner organizations so data can be retrieved on behalf of the end consumer.'
+  docs: https://www.qualia.com/qualia-api/
+idempotency:
+  supported: unknown
+  evidence: 'No idempotency key, retry-safety, or deduplication contract is documented
+    on any public Qualia surface. Not asserted — no Idempotency pointer is wired for
+    this provider.'
+pagination:
+  style: undocumented
+  evidence: 'Public documentation does not describe a pagination contract. GraphQL
+    APIs commonly use Relay-style connections, but Qualia''s is not published and is
+    not asserted here.'
+error_envelope:
+  style: graphql-errors
+  shape: '{"errors":[{"message":"...","extensions":{"code":"..."}}]}'
+  rfc9457: false
+  detail: errors/qualia-error-codes.yml
+rate_limiting:
+  enforced: true
+  evidence: 'The Qualia API page states rate limiting policies are enforced for system
+    stability.'
+  headers: undocumented
+  published_limits: none
+  source: https://www.qualia.com/qualia-api/
+versioning:
+  scheme: undocumented-version-identifier
+  support_window: '12 months'
+  policy: 'The API Terms require partners to use either the most current version of
+    the API Materials provided by Qualia or, unless otherwise directed, a previous
+    version provided within the prior 12-month period.'
+  source: https://www.qualia.com/api-terms/
+  detail: lifecycle/qualia-lifecycle.yml
+request_tracing:
+  request_id_header: undocumented
+events:
+  webhooks: undocumented
+  streaming: undocumented
+  evidence: 'No public webhook, callback, or GraphQL subscription surface is documented.
+    The API is described as "pull and push" but the push side is order placement and
+    message/document exchange, not an event feed. No asyncapi/ artifact was written.'
+sandbox:
+  published: false
+  evidence: 'No public test environment, test credentials, or magic test values are
+    documented. Access is provisioned by Qualia per organization.'
+cross_links:
+  authentication: authentication/qualia-authentication.yml
+  errors: errors/qualia-error-codes.yml
+  lifecycle: lifecycle/qualia-lifecycle.yml
+  graphql: graphql/qualia-graphql.yml
+  conformance: conformance/qualia-conformance.yml

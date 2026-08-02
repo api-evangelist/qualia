@@ -1,0 +1,48 @@
+generated: '2026-08-02'
+method: searched
+status: third-party
+official: false
+source: https://github.com/sanjibani/qualia-mcp
+note: 'IMPORTANT — Qualia Labs does NOT publish a first-party MCP server. The server
+  recorded here is a community/third-party project that wraps the public Qualia GraphQL
+  API. It is captured because it is a real, verifiable agent surface over this API,
+  but NO canonical `type: MCPServer` pointer is wired into apis.yml for Qualia: doing
+  so would credit the provider with an agent surface it does not itself operate. If
+  Qualia ships an official server, upgrade this file and add the pointer then.'
+first_party_search:
+  probed: '2026-08-02'
+  results:
+  - {target: 'mcp.qualia.com', status: no-dns}
+  - {target: 'Qualia docs / API page for MCP mentions', status: none-found}
+  - {target: 'github.com/qualialabs (Qualia Labs org, 33 public repos)', status: no-mcp-repo}
+  conclusion: No first-party Qualia MCP server exists as of this probe.
+third_party_servers:
+- name: qualia-mcp
+  repo: https://github.com/sanjibani/qualia-mcp
+  publisher: sanjibani
+  official: false
+  language: Python
+  license: MIT
+  created: '2026-06-29'
+  last_push: '2026-07-20'
+  transport: stdio
+  backs: https://api.qualia.com/graphql
+  auth: HTTP Basic (the caller supplies their own Qualia organization credentials)
+  description: 'MCP server for the Qualia title and escrow platform. Described by its
+    author as the first MCP in the real estate closing vertical. 7 tools, GraphQL plus
+    basic HTTP auth, isError-compliance, JSONL audit.'
+  tools:
+  - {name: health_check, kind: diagnostic}
+  - {name: get_organization, kind: read}
+  - {name: list_orders, kind: read}
+  - {name: get_order, kind: read}
+  - {name: list_messages, kind: read}
+  - {name: send_message, kind: write}
+  - {name: list_documents, kind: read}
+  tools_verified: 'Tool names taken from the project''s own published description/listing.
+    Input schemas were NOT captured — they would require running the server or reading
+    the source, and the backing GraphQL SDL is auth-gated, so no inputSchema is asserted.'
+x-evidence:
+  fetched: '2026-08-02'
+  url: https://api.github.com/repos/sanjibani/qualia-mcp
+  http_status: 200

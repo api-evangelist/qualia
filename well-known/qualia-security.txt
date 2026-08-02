@@ -1,0 +1,12 @@
+# Primary contact is our security team email
+Contact: mailto:security@qualia.com
+Preferred-Languages: en
+# Qualia Security Bounty Guidelines
+Policy + Bug Bounty Program: Qualia does not have a formal bug bounty program, however we always accept good-faith reports of security vulnerabilities
+     While we do not guarantee monetary rewards, we may consider them in the event a demonstrable, exploitable vulnerability is responsibly disclosed to us
+# Official Qualia Job Board
+Hiring: https://www.qualia.com/careers/
+# Canonical URI
+Canonical: https://qualia.com/.well-known/security.txt
+# This file is considered valid until this date (ISO 8601 format)
+Expires: 2026-09-15T18:00:00.000Z

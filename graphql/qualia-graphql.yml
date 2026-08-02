@@ -1,0 +1,40 @@
+generated: '2026-08-02'
+method: probed
+source: https://api.qualia.com/graphql
+spec_type: GraphQL
+endpoint: https://api.qualia.com/graphql
+discovery:
+  root_redirect: 'GET https://api.qualia.com/ returns 302 -> /graphql ("Found. Redirecting
+    to /graphql")'
+  documented_at: https://www.qualia.com/qualia-api/
+introspection:
+  attempted: true
+  status: gated
+  http_status: 401
+  request: 'POST https://api.qualia.com/graphql {"query":"{__schema{queryType{name}}}"}'
+  response: '{"errors":[{"message":"Authorization header is missing","extensions":{"code":"UNAUTHORIZED"}}]}'
+  note: 'Introspection requires authenticated credentials. The SDL was NOT captured
+    and has NOT been reconstructed — no schema is asserted here. Re-run introspection
+    with an authorized Basic credential to harvest the real SDL into graphql/qualia.graphql.'
+authentication:
+  scheme: http-basic
+  docs: https://www.qualia.com/qualia-api/
+  note: Credentials identify the calling organization.
+authorization:
+  model: capability-gates
+  description: 'Access is organized by capability gates — grants scoped to an objective
+    (e.g. placing orders, messaging, documents, reporting) that must be enabled on
+    the calling organization. Granular controls grant or revoke access to owned or
+    partner organizations to retrieve data on behalf of the end consumer.'
+  docs: https://www.qualia.com/qualia-api/
+capabilities_documented:
+- Place title orders into Qualia Core/Connect or route to third-party systems
+- Track title order status and pipeline
+- Send and receive messages on an order
+- Send and receive documents on an order
+- Pull order, accounting and contact data for custom reporting and dashboards
+x-evidence:
+  fetched: '2026-08-02'
+  url: https://api.qualia.com/graphql
+  http_status: 401
+  content_type: application/json; charset=utf-8

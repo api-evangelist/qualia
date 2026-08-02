@@ -1,0 +1,45 @@
+generated: '2026-08-02'
+method: searched
+source: https://www.qualia.com/qualia-api/
+docs: https://www.qualia.com/qualia-api/
+note: 'Derived from the provider''s published API documentation plus a live unauthenticated
+  probe of the GraphQL endpoint. Qualia publishes no OpenAPI, so no securityScheme
+  block could be derived mechanically.'
+summary:
+  types:
+  - http
+  http_schemes:
+  - basic
+  api_key_in: []
+  oauth2_flows: []
+  authorization_model: capability-gates
+schemes:
+- name: basicAuth
+  type: http
+  scheme: basic
+  description: 'Users are authenticated via a basic HTTP authentication framework to
+    identify the organization calling Qualia. Credentials are issued per organization
+    by Qualia; there is no public self-service key provisioning.'
+  in: header
+  parameter: Authorization
+  sources:
+  - https://www.qualia.com/qualia-api/
+  - probe:https://api.qualia.com/graphql
+authorization:
+  model: capability-gates
+  description: 'Beyond authentication, the Qualia API gates every call behind capability
+    gates — grants organized around an objective (placing orders, messaging, documents,
+    reporting) that Qualia enables on a per-organization basis. Granular controls grant
+    or revoke API access to owned or partner organizations to retrieve data on behalf
+    of the end consumer, so a valid credential does not imply access to every operation.'
+  provisioning: Contact Qualia to have capability gates enabled on your organization.
+  docs: https://www.qualia.com/qualia-api/
+oauth:
+  supported: false
+  evidence: '/.well-known/openid-configuration and /.well-known/oauth-authorization-server
+    both return 404 on www.qualia.com; the docs describe HTTP Basic only.'
+observed:
+  unauthenticated_response:
+    http_status: 401
+    body: '{"errors":[{"message":"Authorization header is missing","extensions":{"code":"UNAUTHORIZED"}}]}'
+    probed: '2026-08-02'

@@ -1,23 +1,123 @@
 aid: qualia
 name: Qualia
-description: 'Qualia is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+description: 'Qualia (Qualia Labs, Inc.) is a digital real estate closing platform
+  whose cloud-based title, escrow and settlement software brings title agents, lenders,
+  real estate agents and consumers onto one secure system of record. Its product family
+  spans Core (title and escrow production), Connect (the secure closing portal for
+  lenders, agents and consumers), Shield (wire-fraud detection, identity verification
+  and insured wire transfers), Marketplace (vendor and title-search ordering), Assure
+  (underwriter management), Atlas (enterprise title and escrow), Clear (an agentic
+  AI system for title production) and Resware (customizable title production). The
+  Qualia API, launched in August 2022, is a read-write GraphQL interface at api.qualia.com/graphql
+  that lets proptech companies, lenders and enterprise title operations place and track
+  title orders, exchange messages and documents, and pull order, accounting and contact
+  data for custom reporting and executive dashboards. Access is organized by capability
+  gates granted per organization and authenticated with HTTP Basic credentials.'
 url: https://raw.githubusercontent.com/api-evangelist/qualia/refs/heads/main/apis.yml
+image: https://kinlane-productions2.s3.amazonaws.com/api-evangelist-site/company-logos/qualia.png
 x-type: company
 x-source: harvest:secondary-market
-x-tier: stub
-x-tier-reason: harvest
 specificationVersion: '0.20'
 created: '2026-08-02'
 modified: '2026-08-02'
 tags:
 - Company
-apis: []
+- Real Estate
+- Title Insurance
+- Escrow
+- Mortgage
+- Closing
+- Settlement Services
+- PropTech
+- Financial Services
+- GraphQL
+apis:
+- aid: qualia:qualia-api
+  name: Qualia API
+  description: 'The Qualia API is a read-write GraphQL API over the Qualia title, escrow
+    and closing platform. It lets partner organizations place title orders into Qualia
+    Core or Connect (or route them to third-party systems), send and receive messages
+    and documents on an order, and pull order, accounting and contact data for custom
+    reporting, notifications and executive dashboards. Access is scoped by capability
+    gates enabled per organization, and calls are authenticated with HTTP Basic credentials
+    identifying the calling organization.'
+  humanURL: https://www.qualia.com/qualia-api/
+  baseURL: https://api.qualia.com/graphql
+  tags:
+  - Title
+  - Escrow
+  - Closing
+  - Orders
+  - Documents
+  - Messaging
+  - Real Estate
+  properties:
+  - type: GraphQL
+    url: graphql/qualia-graphql.yml
+  - type: Authentication
+    url: authentication/qualia-authentication.yml
+  - type: Conventions
+    url: conventions/qualia-conventions.yml
+  - type: ErrorCatalog
+    url: errors/qualia-error-codes.yml
+  - type: TermsOfService
+    url: https://www.qualia.com/api-terms/
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: TrustCenter
+  url: security/qualia-trust-center.yml
 - type: Website
-  url: https://forgeglobal.com/qualia_stock/
+  url: https://www.qualia.com/
+- type: DeveloperPortal
+  url: https://www.qualia.com/qualia-api/
+- type: GettingStarted
+  url: https://learn.qualia.com/api-u
+- type: Support
+  url: https://help.qualia.com/
+- type: Blog
+  url: https://blog.qualia.com/
+- type: BlogRSS
+  url: https://blog.qualia.com/rss/
+- type: GitHubOrganization
+  url: https://github.com/qualialabs
+- type: Pricing
+  url: https://www.qualia.com/pricing/
+- type: SignUp
+  url: https://connect.qualia.com/
+- type: TermsOfService
+  url: https://www.qualia.com/terms/
+- type: PrivacyPolicy
+  url: https://www.qualia.com/privacy-policy/
+- type: StatusPage
+  url: https://status.qualia.com/
+- type: Deprecation
+  url: https://www.qualia.com/api-terms/
+- type: Security
+  url: https://www.qualia.com/.well-known/security.txt
+- type: Compliance
+  url: https://www.qualia.com/trust/
+- type: Integrations
+  url: https://www.qualia.com/integrations/
+- type: WellKnown
+  url: well-known/qualia-well-known.yml
+- type: SecurityTxt
+  url: well-known/qualia-security.txt
+- type: VulnerabilityDisclosure
+  url: security/qualia-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/qualia-domain-security.yml
+- type: Lifecycle
+  url: lifecycle/qualia-lifecycle.yml
+- type: Conformance
+  url: conformance/qualia-conformance.yml
+- type: LLMsTxt
+  url: llms/qualia-llms.txt
+x-enrichment:
+  date: '2026-08-02'
+  status: enriched
+  artifacts_added: 13
+  pass: local-v1
