@@ -1,0 +1,18 @@
+{
+  "repo": "qualia",
+  "feeds": [
+    {
+      "source": "https://help.qualia.com/",
+      "error": "HTTPError"
+    },
+    {
+      "source": "https://blog.qualia.com/",
+      "feed_url": "https://blog.qualia.com/feed/",
+      "title": "",
+      "saved": 1,
+      "method": "discovered"
+    }
+  ],
+  "post_count": 1,
+  "fetched": "2026-08-06T14:08:46Z"
+}
