@@ -22,6 +22,17 @@ created: '2026-08-02'
 modified: '2026-08-02'
 tags:
 - Company
+- Real-Estate
+- Title Insurance
+- Escrow
+- Mortgage
+- Closing
+- Settlement Services
+- PropTech
+- Financial-Services
+- GraphQL
+tags_raw:
+- Company
 - Real Estate
 - Title Insurance
 - Escrow
@@ -44,6 +55,14 @@ apis:
   humanURL: https://www.qualia.com/qualia-api/
   baseURL: https://api.qualia.com/graphql
   tags:
+  - Title
+  - Escrow
+  - Closing
+  - Order
+  - Documents
+  - Messaging
+  - Real-Estate
+  tags_raw:
   - Title
   - Escrow
   - Closing
