@@ -14,6 +14,17 @@ description: 'Qualia (Qualia Labs, Inc.) is a digital real estate closing platfo
   data for custom reporting and executive dashboards. Access is organized by capability
   gates granted per organization and authenticated with HTTP Basic credentials.'
 url: https://raw.githubusercontent.com/api-evangelist/qualia/refs/heads/main/apis.yml
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 image: https://kinlane-productions2.s3.amazonaws.com/api-evangelist-site/company-logos/qualia.png
 x-type: company
 x-source: harvest:secondary-market
